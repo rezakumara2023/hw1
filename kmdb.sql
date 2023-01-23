@@ -368,6 +368,7 @@ VALUES
 --   URL for the finished "hw1" repository as the "Website URL" for the 
 --   Homework 1 assignment in Canvas
 
+
 -- Successful sample output is as shown:
 
 -- Movies
@@ -398,7 +399,7 @@ VALUES
 
 -- Turns column mode on but headers off
 .mode column
-.headers off
+.headers on
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -413,6 +414,9 @@ VALUES
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
+-- Report Code Starts below:
+   SELECT movies.title, movies.year_released,movies.mpaa_rating,studios.studio_name 
+   from movies INNER JOIN studios on movies.studio_id = studios.id;
 .print ""
 
 -- The SQL statement for the movies output
@@ -422,6 +426,11 @@ VALUES
 .print ""
 .print "Top Cast"
 .print "========"
+SELECT movies.title, actors.actor_name, characters.char_name 
+from movies INNER JOIN casts on movies.id = casts.movie_id
+JOIN actors on casts.actor_id = actors.id
+JOIN characters on casts.char_id = characters.id
+Order BY movies.title; 
 .print ""
 
 
