@@ -25,6 +25,20 @@
 -- * Note: The "guest" user role represents the experience prior to logging-in
 --   to an app and typically does not have a corresponding database table.
 
+-- Code for creating database:
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  studio_name TEXT
+);
+
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  year_released INTEGER,
+  mpaa_rating TEXT,
+  studio_name
+);
+
 
 -- Deliverables
 -- 
@@ -39,6 +53,8 @@
 
 -- Rubric
 --
+
+
 -- 1. Domain model - 6 points
 -- - Think about how the domain model needs to reflect the
 --   "real world" entities and the relationships with each other. 
