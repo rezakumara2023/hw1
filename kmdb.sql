@@ -37,6 +37,15 @@ CREATE TABLE studios (
   studio_name TEXT
 );
 
+INSERT into studios
+(
+    "studio_name"
+)
+VALUES
+(
+    "Warner Bros."
+);
+
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
@@ -45,9 +54,58 @@ CREATE TABLE movies (
   studio_id INTEGER
 );
 
+INSERT into movies
+(
+    "title",
+  "year_released",
+  "mpaa_rating" ,
+  "studio_id"
+)
+VALUES
+(
+    "Batman Begins",
+  "2005",
+  "PG-13" ,
+  1
+),
+(
+  "The Dark Knight",
+  "2008",
+  "PG-13" ,
+  2
+),
+(
+    "The Dark Knight Rises",
+  "2012",
+  "PG-13" ,
+  3
+);
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT
+);
+INSERT into actors
+(
+    "actor_name"
+)
+VALUES
+(
+    "Batman Begins",
+  "2005",
+  "PG-13" ,
+  1
+),
+(
+  "The Dark Knight",
+  "2008",
+  "PG-13" ,
+  2
+),
+(
+    "The Dark Knight Rises",
+  "2012",
+  "PG-13" ,
+  3
 );
 
 CREATE TABLE characters (
@@ -62,6 +120,9 @@ CREATE TABLE movies_and_actors (
   movie_id INTEGER,
   actor_id INTEGER
 );
+
+
+
 
 -- Deliverables
 -- 
