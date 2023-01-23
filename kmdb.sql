@@ -26,6 +26,12 @@
 --   to an app and typically does not have a corresponding database table.
 
 -- Code for creating database:
+Drop table IF EXISTS studios;
+Drop table IF EXISTS movies;
+Drop table IF EXISTS actors;
+Drop table IF EXISTS characters;
+Drop table IF EXISTS movies_and_actors;
+
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   studio_name TEXT
@@ -36,9 +42,26 @@ CREATE TABLE movies (
   title TEXT,
   year_released INTEGER,
   mpaa_rating TEXT,
-  studio_name
+  studio_id INTEGER
 );
 
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  actor_name TEXT
+);
+
+CREATE TABLE characters (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  char_name TEXT,
+  movie_id INTEGER,
+  actor_id INTEGER
+);
+
+CREATE TABLE movies_and_actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_id INTEGER,
+  actor_id INTEGER
+);
 
 -- Deliverables
 -- 
