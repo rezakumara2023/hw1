@@ -31,8 +31,9 @@ Drop table IF EXISTS movies;
 Drop table IF EXISTS actors;
 Drop table IF EXISTS characters;
 Drop table IF EXISTS movies_and_actors;
-
-CREATE TABLE studios (
+Drop table IF EXISTS casts;
+CREATE TABLE studios 
+(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   studio_name TEXT
 );
@@ -72,13 +73,13 @@ VALUES
   "The Dark Knight",
   "2008",
   "PG-13" ,
-  2
+  1
 ),
 (
     "The Dark Knight Rises",
   "2012",
   "PG-13" ,
-  3
+  1
 );
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -90,22 +91,37 @@ INSERT into actors
 )
 VALUES
 (
-    "Batman Begins",
-  "2005",
-  "PG-13" ,
-  1
+    "Christian Bale"
 ),
 (
-  "The Dark Knight",
-  "2008",
-  "PG-13" ,
-  2
+  "Michael Caine"
 ),
 (
-    "The Dark Knight Rises",
-  "2012",
-  "PG-13" ,
-  3
+    "Liam Neeson"
+),
+(
+    "Katie Holmes"
+),
+(
+  "Gary Oldman"
+),
+(
+    "Heath Ledger"
+),
+(
+    "Aaron Eckhart"
+),
+(
+  "Maggie Gyllenhaal"
+),
+(
+    "Tom Hardy"
+),
+(
+  "Joseph Gordon-Levitt"
+),
+(
+    "Anne Hathaway"
 );
 
 CREATE TABLE characters (
@@ -114,16 +130,201 @@ CREATE TABLE characters (
   movie_id INTEGER,
   actor_id INTEGER
 );
+INSERT into characters
+(
+    "char_name",
+    "movie_id" ,
+  "actor_id" 
+)
+VALUES
+(
+    "Bruce Wayne",
+    1,
+    1
+), 
+(
+    "Bruce Wayne",
+    2,
+    1
+),
+(
+    "Bruce Wayne",
+    3,
+    1
+),
+(
+  "Alfred",
+   1,
+   2
 
-CREATE TABLE movies_and_actors (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_id INTEGER,
-  actor_id INTEGER
+),
+(
+  "Alfred",
+   2,
+   2
+
+),
+(
+  "Alfred",
+   3,
+   2
+
+),
+(
+    "Ra's Al Ghul",
+    1,
+    3
+),
+(
+    "Rachel Dawes",
+    1,
+    4
+),
+(
+    "Rachel Dawes",
+    2,
+    8
+),
+(
+  "Comissioner Gordon",
+  1,
+  5
+),
+(
+  "Comissioner Gordon",
+  2,
+  5
+),
+(
+  "Comissioner Gordon",
+  3,
+  5
+),
+(
+    "Joker",
+    2,
+    6
+),
+(
+    "Harvey Dent",
+    2,
+    7
+),
+(
+    "Bane",
+    3,
+    9
+),
+(
+  "John Blake",
+  3,
+  10
+),
+(
+    "Selina Kyle",
+    3,
+    11
 );
 
 
-
-
+CREATE TABLE casts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  char_id INTEGER,
+  movie_id INTEGER,
+  actor_id INTEGER
+);
+INSERT into casts
+(
+    "char_id" ,
+  "movie_id" ,
+  "actor_id" 
+)
+VALUES
+(
+    1,
+    1,
+    1
+), 
+(
+    2,
+    2,
+    1
+), 
+(
+    3,
+    3,
+    1
+), 
+(
+    4,
+    1,
+    2
+), 
+(
+    5,
+    2,
+    2
+), 
+(
+    6,
+    3,
+    2
+), 
+(
+    7,
+    1,
+    3
+), 
+(
+    8,
+    1,
+    4
+), 
+(
+    9,
+    2,
+    8
+), 
+(
+    10,
+    1,
+    5
+), 
+(
+    11,
+    2,
+    5
+), 
+(
+    12,
+    3,
+    5
+), 
+(
+    13,
+    2,
+    6
+), 
+(
+    14,
+    2,
+    7
+), 
+(
+    15,
+    3,
+    9
+), 
+(
+    16,
+    3,
+    10
+), 
+(
+    17,
+    3,
+    11
+); 
 -- Deliverables
 -- 
 -- There are three deliverables for this assignment, all delivered via
